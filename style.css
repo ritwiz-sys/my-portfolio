@@ -231,3 +231,20 @@ form button:hover{
     padding: 20px;
     text-align: center;
 }
+header {
+  background: linear-gradient(-45deg, #2575fc, #6a11cb, #ff6a00, #ff0077);
+  background-size: 400% 400%;
+  animation: gradientMove 15s ease infinite;
+}
+
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@media (max-width: 768px) {
+  .navbar { flex-direction: column; }
+  .nav-links { flex-direction: column; gap: 10px; }
+  .hero h2 { font-size: 2rem; }
+}
