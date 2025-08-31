@@ -1,26 +1,30 @@
-const form = document.getElementById("contactForm");
-const message = document.getElementById("formMessage");
-const spinner = document.getElementById("loadingSpinner");
+// Sidebar toggle
+const menuBtn = document.getElementById("menu-btn");
+const sidebar = document.getElementById("sidebar");
 
-form.addEventListener("submit", function(e) {
-  e.preventDefault();
-
-  // Show spinner + hide old messages
-  spinner.style.display = "block";
-  message.style.display = "none";
-
-  emailjs.sendForm("service_jjpahzn", "template_1e8ymlm", this)
-    .then(() => {
-      spinner.style.display = "none"; // hide spinner
-      message.style.display = "block";
-      message.style.color = "green";
-      message.textContent = "✅ Message sent successfully!";
-      form.reset();
-    }, (error) => {
-      spinner.style.display = "none"; // hide spinner
-      message.style.display = "block";
-      message.style.color = "red";
-      message.textContent = "❌ Failed to send message. Please try again.";
-      console.error("EmailJS Error:", error);
-    });
+menuBtn.addEventListener("click", () => {
+  if(window.innerWidth <= 768){
+    sidebar.classList.toggle("active");
+  }
 });
+document.querySelectorAll('#sidebar a').forEach(link => {
+  link.addEventListener('click', () => sidebar.classList.remove('active'));
+});
+
+// Smooth scroll
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function(e){
+    e.preventDefault();
+    document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
+    sidebar.classList.remove('active');
+  });
+});
+
+// Projects carousel
+const carousel = document.querySelector(".projects-carousel");
+const prevBtn = document.getElementById("prev");
+const nextBtn = document.getElementById("next");
+const scrollAmount = 300;
+
+nextBtn.addEventListener("click", () => carousel.scrollBy({left: scrollAmount, behavior:'smooth'}));
+prevBtn.addEventListener("click", () => carousel.scrollBy({left: -scrollAmount, behavior:'smooth'}));

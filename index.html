@@ -16,11 +16,14 @@
     <nav class="navbar">
       <h1 class="logo">My Portfolio</h1>
       <div class="nav-links">
-
+      <button id="menu-btn">☰</button>
+      <nav id="sidebar" class="hidden">
         <a href="#home">Home</a>
         <a href="#about">About</a>
         <a href="#projects">Projects</a>
         <a href="#contact">Contact</a>
+      </nav>
+        
         <button id="themeToggle">🌙</button>
         
       </div>
@@ -40,21 +43,25 @@
     <p>Passionate coder, actively honing DSA through coding challenges (LeetCode). Organized study groups for frontend & backend collaboration. Strong in C++ & Python, with expertise in user-friendly UI development. Currently diving into backend to become a full-stack engineer. Excellent communicator, eager to connect and innovate in tech.</p>
   </section>
 
-  <!-- Projects -->
   <section id="projects">
     <h2>My Projects</h2>
-    <div class="project-grid">
-      <div class="project-card">
-        <h3>Project 1</h3>
-        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit</p>
+    <div class="carousel-container">
+      <button id="prev" class="carousel-btn">‹</button>
+      <div class="projects-carousel">
+        <div class="project-card">
+          <h3>Project 1</h3>
+          <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit</p>
+        </div>
+        <div class="project-card">
+          <h3>Project 2</h3>
+          <p>Lorem ipsum dolor sit amet consectetur adipisic</p>
+        </div>
+        <!-- Add more projects here -->
       </div>
-      <div class="project-card">
-        <h3>Project 2</h3>
-        <p>Lorem ipsum dolor sit amet consectetur adipisic</p>
-      </div>
+      <button id="next" class="carousel-btn">›</button>
     </div>
   </section>
-
+  
   <!-- Contact -->
   <section id="contact">
     <h2>Contact Me</h2>
